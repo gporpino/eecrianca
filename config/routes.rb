@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :units
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
   as :user do
