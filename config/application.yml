@@ -2,3 +2,8 @@ development:
   GOOGLE_CLIENT_ID: '531239989689-n07q3q0ekjgd8eppc5hbvpnbb3bsep6s.apps.googleusercontent.com'
   GOOGLE_CLIENT_SECRET: 'DnbFkd9Nci13jjVzMxhfetJn'
   EECRIANCA_DOMAIN: 'escolaespacocrianca.com.br'
+
+production:  
+  GOOGLE_CLIENT_ID: '531239989689-n07q3q0ekjgd8eppc5hbvpnbb3bsep6s.apps.googleusercontent.com'
+  GOOGLE_CLIENT_SECRET: 'DnbFkd9Nci13jjVzMxhfetJn'
+  EECRIANCA_DOMAIN: 'escolaespacocrianca.com.br'

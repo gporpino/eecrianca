@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :units
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
   as :user do
     match '/users/logout' => 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via

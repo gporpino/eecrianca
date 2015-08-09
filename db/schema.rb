@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808131515) do
+ActiveRecord::Schema.define(version: 20150809025759) do
+
+  create_table "units", force: :cascade do |t|
+    t.integer  "year"
+    t.integer  "sequence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
