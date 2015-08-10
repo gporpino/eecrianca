@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
   devise_for :admins
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :units
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
+  
+  resources :units
+  
   as :user do
     match '/users/logout' => 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
     unauthenticated :user do
       root to: 'login#index', as: nil
     end
   end
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
