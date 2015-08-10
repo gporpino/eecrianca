@@ -1,0 +1,35 @@
+<%= form_for @unit, :html => { :class => "form-horizontal unit" } do |f| %>
+
+    <% if @unit.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @unit.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :sequence, :class => 'control-label' %>:<%= @unit.sequence %>
+    <%= f.hidden_field :sequence %>
+  </div>  
+
+  <div class="control-group">
+    <%= f.label :year, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :year, (Time.zone.now.year)..(Time.zone.now.year + 5), :class => 'form-control' %>
+    </div>
+    <%= error_span(@unit[:year]) %>
+  </div>
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            units_path, :class => 'btn btn-default' %>
+
+<% end %>
