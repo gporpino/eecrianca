@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :employees
+  resources :classrooms
+  resources :grades
   devise_for :admins
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }, skip: [:sessions]
   
