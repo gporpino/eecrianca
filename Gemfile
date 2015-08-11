@@ -33,13 +33,13 @@ gem 'enumerize'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pg', 		group: :production
-gem 'sqlite3', 	group: :development
+gem 'pg'
+# gem 'sqlite3', 	group: :development
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
