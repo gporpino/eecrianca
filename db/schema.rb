@@ -28,10 +28,7 @@ ActiveRecord::Schema.define(version: 20151110000907) do
     t.string   "place_of_birth"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "student_id"
   end
-
-  add_index "accountables", ["student_id"], name: "index_accountables_on_student_id"
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
