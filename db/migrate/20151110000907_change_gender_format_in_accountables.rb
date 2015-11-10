@@ -1,8 +1,6 @@
 class ChangeGenderFormatInAccountables < ActiveRecord::Migration
-  def up
-  	change_column :accountables, :gender, :integer
-  end
-  def down
-  	change_column :accountables, :gender, :string
+  def change
+  	remove_column :accountables, :gender, :string
+  	add_column :accountables, :gender, :integer
   end
 end

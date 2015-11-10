@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20151110000907) do
 
   create_table "accountables", force: :cascade do |t|
     t.string   "name"
-    t.integer  "gender"
     t.date     "birthdate"
     t.string   "cpf"
     t.string   "identity_number"
@@ -28,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151110000907) do
     t.string   "place_of_birth"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "gender"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -105,11 +105,11 @@ ActiveRecord::Schema.define(version: 20151110000907) do
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.integer  "gender"
     t.date     "birthdate"
     t.string   "breed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "gender"
   end
 
   create_table "units", force: :cascade do |t|
