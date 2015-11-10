@@ -15,31 +15,47 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label', placeholder: "Name" %>
+    <%= f.text_field :name, :class => 'form-control' %>
     <%= error_span(@employee[:name]) %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :birthdate, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :birthdate, :class => 'form-control' %>
+      <%= f.date_select :birthdate, order: [:day, :month, :year], start_year: 1930, end_year: Date.today.year - 10, :class => 'form-control' %>
     </div>
     <%= error_span(@employee[:birthdate]) %>
   </div>
-  <div class="control-group">
+  <div class="form-group">
     <%= f.label :role, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :role, :class => 'form-control' %>
+      <%= f.select :role, Employee.role.options, :class => 'form-control' %>
     </div>
     <%= error_span(@employee[:role]) %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :worktime, :class => 'control-label' %>
+    <div class="controls">
+      <span >First: </span>
+      <%= f.time_select :first_worktime_start, { default: Time.now.change(hour: 8), minute_step: 30, start_hour: 7, end_hour: 19 } %>
+      <span >to: </span>
+      <%= f.time_select :first_worktime_end, { default: Time.now.change(hour: 12), minute_step: 30, start_hour: 7, end_hour: 19 } %>
+    </div>  
+    <div class="controls">
+      <span >Second: </span>
+      <%= f.time_select :second_worktime_start, { default: Time.now.change(hour: 14), minute_step: 30, start_hour: 7, end_hour: 19 } %>
+      <span >to: </span>
+      <%= f.time_select :second_worktime_end, { default: Time.now.change(hour: 18), minute_step: 30, start_hour: 7, end_hour: 19 } %>
+    </div>
+    
+    <%= error_span(@employee[:worktime]) %>
+  </div>
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            employees_path, :class => 'btn btn-default' %>
+    employees_path, :class => 'btn btn-default' %>
+
 
 <% end %>

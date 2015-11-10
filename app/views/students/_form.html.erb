@@ -1,0 +1,67 @@
+<%= form_for @student, :html => { :class => "form-horizontal student" } do |f| %>
+
+    <% if @student.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="control-group">
+        <%= f.label :name, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name, :class => 'form-control' %>
+        </div>
+        <%= error_span(@student[:name]) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="control-group">
+        <%= f.label :gender, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :gender, Student.genders, :class => 'form-control'  %>
+        </div>
+        <%= error_span(@student[:gender]) %>
+      </div>
+    </div>
+    <div class="col-lg-3"> 
+      <div class="control-group">
+        <%= f.label :birthdate, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.date_field :birthdate, :class => 'form-control' %>
+        </div>
+        <%= error_span(@student[:birthdate]) %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="control-group">
+        <%= f.label :breed, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :breed, :class => 'form-control' %>
+        </div>
+        <%= error_span(@student[:breed]) %>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="btn-group">
+
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              students_path, :class => 'btn btn-default' %>
+  </div>              
+
+<% end %>

@@ -1,0 +1,75 @@
+<%= form_for @enrollment, :html => { :class => "form-horizontal enrollment" } do |f| %>
+
+    <% if @enrollment.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @enrollment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="control-group">
+        <%= f.label :school_year, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :school_year, (Date.today.year..Date.today.year.next), :class => 'school_year'  %>
+        </div>
+        <%= error_span(@enrollment[:name]) %>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div class="control-group">
+        <%= f.label :services, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.collection_select :service_ids, Service.all, :id, :name, { :selected => @enrollment.services.map {|s| s.id}, :include_blank => true }, { :multiple => true } %>
+        </div>
+        <%= error_span(@enrollment[:educational_accountable_id]) %>
+      </div>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="control-group">
+        <%= f.label :student, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.collection_select :student_id, Student.all, :id, :name, prompt: true %>
+        </div>
+        <%= error_span(@enrollment[:student_id]) %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="control-group">
+        <%= f.label :financial_accountable, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.collection_select :financial_accountable_id, Accountable.all, :id, :name, prompt: true %>
+        </div>
+        <%= error_span(@enrollment[:financial_accountable_id]) %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="control-group">
+        <%= f.label :educational_accountable, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.collection_select :educational_accountable_id, Accountable.all, :id, :name, prompt: true %>
+        </div>
+        <%= error_span(@enrollment[:educational_accountable_id]) %>
+      </div>
+    </div>
+  </div>  
+
+
+  <div class="btn-group">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            enrollments_path, :class => 'btn btn-default' %>
+  </div>
+<% end %>

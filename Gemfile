@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -28,6 +28,8 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem 'cancan'
 gem 'enumerize'
+gem "select2-rails"
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -38,8 +40,8 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pg'
-# gem 'sqlite3', 	group: :development
+gem 'pg', group: :production
+gem 'sqlite3', 	group: :development
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

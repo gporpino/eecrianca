@@ -1,0 +1,41 @@
+<%- model_class = Accountable -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @accountable.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @accountable.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birthdate) %>:</strong></dt>
+  <dd><%= @accountable.birthdate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
+  <dd><%= @accountable.cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:identity_number) %>:</strong></dt>
+  <dd><%= @accountable.identity_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:issuing) %>:</strong></dt>
+  <dd><%= @accountable.issuing %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @accountable.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @accountable.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:occupation) %>:</strong></dt>
+  <dd><%= @accountable.occupation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:company) %>:</strong></dt>
+  <dd><%= @accountable.company %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nationality) %>:</strong></dt>
+  <dd><%= @accountable.nationality %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:place_of_birth) %>:</strong></dt>
+  <dd><%= @accountable.place_of_birth %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              accountables_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_accountable_path(@accountable), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              accountable_path(@accountable),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

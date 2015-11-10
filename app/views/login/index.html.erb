@@ -1,3 +1,6 @@
-<div class="dl-horizontal">
-	<%= link_to 'Entrar com sua conta do Google', user_omniauth_authorize_path(:google_oauth2) %>
-</div>	
+
+<a class="btn btn-lgbtn-social btn-google-plus" href="<%= user_omniauth_authorize_path(:google_oauth2) %>">
+	<i class='fa fa-google-plus'></i>
+	Entrar com sua conta do Google
+</a>
+

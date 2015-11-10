@@ -1,0 +1,27 @@
+<%- model_class = Enrollment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:school_year) %>:</strong></dt>
+  <dd><%= @enrollment.school_year %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:student) %>:</strong></dt>
+  <dd><%= @enrollment.student.try(:name) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:financial_accountable) %>:</strong></dt>
+  <dd><%= @enrollment.financial_accountable.try(:name) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:educational_accountable) %>:</strong></dt>
+  <dd><%= @enrollment.educational_accountable.try(:name) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:services) %>:</strong></dt>
+  <dd><%= @enrollment.services.map{|s| s.try(:name)}.join(", ") %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              enrollments_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_enrollment_path(@enrollment), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              enrollment_path(@enrollment),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

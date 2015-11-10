@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :enrollments
+  resources :services
+  resources :accountables
+  resources :accountables
+  resources :students
   resources :employees
   resources :classrooms
   resources :grades

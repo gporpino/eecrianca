@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
@@ -70,6 +71,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :birthdate, :role)
+      params.require(:employee).permit(:name, :birthdate, :role, :first_worktime_start, :first_worktime_end, :second_worktime_start, :second_worktime_start)
     end
 end
