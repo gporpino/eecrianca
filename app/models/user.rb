@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  extend Enumerize
   extend ActiveModel::Naming
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :password
 
-  enumerize :role, in: [:regular, :teacher, :human_resources, :financier, :coordinator, :manager ], default: :regular
+  enum role: [:regular, :secretary, :teacher, :human_resources, :financier, :coordinator, :manager ]
 
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 

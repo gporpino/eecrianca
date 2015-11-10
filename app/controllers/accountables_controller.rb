@@ -1,6 +1,6 @@
 class AccountablesController < ApplicationController
+  load_and_authorize_resource except: :create
   before_action :authenticate_user!
-  load_and_authorize_resource
   before_action :set_accountable, only: [:show, :edit, :update, :destroy]
 
   # GET /accountables
@@ -27,6 +27,7 @@ class AccountablesController < ApplicationController
   # POST /accountables.json
   def create
     @accountable = Accountable.new(accountable_params)
+    authorize! :create, @accountable
 
     respond_to do |format|
       if @accountable.save

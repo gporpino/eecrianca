@@ -30,7 +30,7 @@
       <div class="control-group">
         <%= f.label :gender, :class => 'control-label' %>
         <div class="controls">
-          <%= f.select :gender, Student.genders, :class => 'form-control'  %>
+          <%= f.select :gender, Student.genders.keys, :class => 'form-control'  %>
         </div>
         <%= error_span(@student[:gender]) %>
       </div>

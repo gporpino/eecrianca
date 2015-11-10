@@ -14,95 +14,105 @@
       </div>
     </div>
   <% end %>
+  <div class="row"> 
+    <div class="control-group col-lg-12">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:name]) %>
+    </div>
+  </div>  
+  <div class="row"> 
+    <div class="control-group col-lg-3">
+      <%= f.label :gender, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :gender, Student.genders.keys, :class => 'form-control'  %>
+      </div>
+      <%= error_span(@accountable[:gender]) %>
+    </div>
+    <div class="control-group col-lg-3">
+      <%= f.label :birthdate, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_field :birthdate, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:birthdate]) %>
+    </div>
+    <div class="control-group col-lg-6">
+      <%= f.label :cpf, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :cpf, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:cpf]) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="control-group col-lg-3">
+      <%= f.label :identity_number, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :identity_number, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:identity_number]) %>
+    </div>
+    <div class="control-group col-lg-2">
+      <%= f.label :issuing, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :issuing, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:issuing]) %>
+    </div>
+  
+    <div class="control-group col-lg-3">
+      <%= f.label :phone, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :phone, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:phone]) %>
+    </div>
+    <div class="control-group col-lg-4">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:email]) %>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="control-group col-lg-5">
+      <%= f.label :occupation, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :occupation, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:occupation]) %>
+    </div>
+    <div class="control-group col-lg-7">
+      <%= f.label :company, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :company, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:company]) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="control-group col-lg-6">
+      <%= f.label :nationality, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :nationality, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:nationality]) %>
+    </div>
+    <div class="control-group col-lg-6">
+      <%= f.label :place_of_birth, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :place_of_birth, :class => 'form-control' %>
+      </div>
+      <%= error_span(@accountable[:place_of_birth]) %>
+    </div>
+  </div>  
 
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:name]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :gender, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :gender, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:gender]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :birthdate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :birthdate, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:birthdate]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :cpf, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cpf, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:cpf]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :identity_number, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :identity_number, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:identity_number]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :issuing, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :issuing, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:issuing]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :phone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :phone, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:phone]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:email]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :occupation, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :occupation, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:occupation]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :company, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :company, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:company]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :nationality, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :nationality, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:nationality]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :place_of_birth, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :place_of_birth, :class => 'form-control' %>
-    </div>
-    <%= error_span(@accountable[:place_of_birth]) %>
-  </div>
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            accountables_path, :class => 'btn btn-default' %>
+  <div class="btn-group">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              accountables_path, :class => 'btn btn-default' %>
 
 <% end %>

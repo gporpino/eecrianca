@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
   before_action :authenticate_user!
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
@@ -27,6 +27,7 @@ class ServicesController < ApplicationController
   # POST /services.json
   def create
     @service = Service.new(service_params)
+    authorize! :create, @service
 
     respond_to do |format|
       if @service.save

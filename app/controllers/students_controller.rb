@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
   before_action :authenticate_user!
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
@@ -27,6 +27,7 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
+    authorize! :create, @student
 
     respond_to do |format|
       if @student.save

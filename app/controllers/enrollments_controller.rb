@@ -1,6 +1,6 @@
 class EnrollmentsController < ApplicationController
+  load_and_authorize_resource except: :create
   before_action :authenticate_user!
-  load_and_authorize_resource
   before_action :set_enrollment, only: [:show, :edit, :update, :destroy]
 
   # GET /enrollments
@@ -27,6 +27,7 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments.json
   def create
     @enrollment = Enrollment.new(enrollment_params)
+    authorize! :create, @enrollment
 
     respond_to do |format|
       if @enrollment.save

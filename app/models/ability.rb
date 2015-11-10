@@ -6,11 +6,14 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
 
-    if user.role.manager?
-      can :manage, :all
-
-    else
-      can :read, :all
+    case user.role.to_sym
+      when :manager    
+        can :manage, :all
+      when :secretary
+        can :manage, :all
+        cannot :update, Service
+      else
+        can :read, :all
     end
     
     #
