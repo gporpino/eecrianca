@@ -64,6 +64,16 @@ class EnrollmentsController < ApplicationController
     end
   end
 
+  def contract
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "contract"   # Excluding ".pdf" extension.
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_enrollment

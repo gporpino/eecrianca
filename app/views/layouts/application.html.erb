@@ -48,10 +48,10 @@
         <a class="navbar-brand" href="#"><%= image_tag "logo_inline_small.png", :class => "logo" %> </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to t("students"), "/students" unless current_user.nil? %></li>
-            <li><%= link_to t("accountables"), "/accountables" unless current_user.nil? %></li>
-            <li><%= link_to t("enrollments"), "/enrollments" unless current_user.nil? %></li>
-            <li><%= link_to t("services"), "/services" unless current_user.nil? %></li>
+            <li><%= link_to t(Student.model_name.human.pluralize.titleize), "/students" if can? :read, Student %></li>
+            <li><%= link_to t(Accountable.model_name.human.pluralize.titleize), "/accountables" if can? :read, Accountable %></li>
+            <li><%= link_to t(Enrollment.model_name.human.pluralize.titleize), "/enrollments" if can? :read, Enrollment %></li>
+            <li><%= link_to t(Service.model_name.human.pluralize.titleize), "/services" if can? :read, Service %></li>
 
             <li><%= link_to('Sair', destroy_user_session_path, method: :delete) unless current_user.nil? %></li>
           </ul>

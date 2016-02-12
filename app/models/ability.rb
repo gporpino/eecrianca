@@ -11,9 +11,9 @@ class Ability
         can :manage, :all
       when :secretary
         can :manage, :all
-        cannot :update, Service
+        cannot :manage, Service
       else
-        can :read, :all
+        cannot :manage, :all
     end
     
     #

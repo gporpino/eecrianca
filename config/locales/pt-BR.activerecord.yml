@@ -1,0 +1,35 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        taken: "has already been taken"
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      student: 
+        one: Aluno
+        other: Alunos
+      accountable:
+        one: Responsável
+        other: Responsáveis
+      service:
+        one: Serviço
+        other: Serviços
+      enrollment:
+        one: Matrícula
+        other: Matrículas
+    attributes:
+      name: "Nome"
+      phone: "Telefone" 
+      created_at: "Criado em"
+      updated_at: "Atualizado em"
+      user:
+        login: "Login"
+      student: 
+        gender: "Gênero"
+      accountable:
+
